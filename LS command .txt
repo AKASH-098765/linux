@@ -1,0 +1,55 @@
+session:8
+date 4/3/24
+
+LS and it command:
+-------------------
+
+-ls dir1:		list out all the file from dir1 directory
+-ls:			ls out all the file in current working directory 
+-man ls			complete documentation for the info of ls command
+-man ls > ls_doc.txt	if we want to save the result in file the use this and it will save the result in ls_doc.txt file
+-wc -l ls_doc.txt 	to see how many line are there in the ls_doc.txt file
+
+
+-various option for ls command:
+1 ls : it will list out all file and dir. in cwd in alphabetical order
+2 ls -r : it will list out all file and dir. in revers of alpha order
+3 ls -l : to display long listing form all provide all the detail of dir and file
+	------example--------
+	-rw-rw-r-- 1 akash akash 67 Feb 28 22:47 text.txt
+here
+"-" present type of file
+"rw-rw-r--" permission
+"1" no. of link file
+"akash" owner name
+"akash" group name
+"67" size of file
+"feb 28 22:47" creation time of file
+"test.txt" file name
+	
+4 ls -t : -t means cration or last modified time sorting of all file. so most recent will be on top
+
+5 ls -ltr : -ltr means old file at top and new file at bottom it will combile the result of -l -t -r in single shot as a -ltr or -rtl or -trl.
+
+6 ls -a : -a means all file. it will display all hidden file.
+7 ls -A : -A means almost all except . and .. file
+8 ls -F : -F means file by type
+	if file end with
+		/ then it is directory
+		@ means link file
+		* means executable file
+9 ls -f : -f will show all file without any colour combination for file
+10 ls -i : display all file including inode number
+
+11 ls -R : -R means recursive. it wil show the all the data present in sub directory also
+
+12 ls -s : -s means size of file in block (kb)
+
+13 ls -h : -h means human redable form
+ 
+14 ls -l | head : -l | head means it will get only top file if we have large amount of file 
+
+15 ls -l /etc | tail : it will show  last line 
+
+16 ls -l /etc | more : show all contain only in forword direction
+17 ls -l /etc | less: it wil display all content and we can move to next page and previous page

@@ -1,0 +1,117 @@
+session 9
+date: 6/3/24
+------------------
+
+command line argument:
+----------------------
+
+The argument which are passing from command prompt are consider command line argument.
+	-------example---------
+$ ./test.sh learning linux is very easy
+	here
+	-$#	--number of argument(5)
+	-$0	--first argument(learning)
+	-$1	--second argument(linux)
+	-$2	--third argument(is)
+	-$3	--forth argument(very)
+	-$4	--fifth argument(easy)
+	-$* 	--all argument (learning linux is very easy)
+	-$@	-- all argument(learning linux is very easy)
+	-$? 	--represent exit code of perviously executed command or 
+	---------script--------
+echo "first args: $1"
+echo "second args: $2"
+echo "third args: $3"
+echo "forth args: $4"
+----------------------------------
+
+save this 4 line in a file whose extension should be .sh(test.sh)
+before executing this file first of all give the permission to this file using following command
+
+	$chmod u+x test.sh
+
+now run this script and pass some args as
+./test.sh learning linux is very easy
+
+
+DIFFERENCE BETWEEN $@ AND $*
+------------------------------
+
+$@	all command line args with space seprator
+	"$1" "$2" "$3" "$4" "$5"
+	learning linux is very easy
+
+$*	all command line args as a single string
+	"$1c$2c$3c$4c$5"
+	here c is first charcter of the IFS (internal field seprator)
+	the default value is space
+
+How to check default IFS
+-------------------------
+$ set | grep "IFS"
+IFS=$' \t\n'
+
+here we can  change the IFS as per our need to get the desired output
+
+---------script--------
+IFS="-"
+echo "first args: $1"
+echo "second args: $2"
+echo "third args: $3"
+echo "forth args: $4"
+--------------------------
+
+
+
+WHAT IS MAIN PURPOSE OF COMMAND LINE ARGS:
+-------------------------------------------
+-to customise behaviour of the script
+-based on our args the script will work.
+	------script---------
+	echo "apple" | wc -c
+
+here result we get as 6 because after printing APPLE it will add /n to print the next command in next line
+-if we dont want new line char then we are going to use like
+	echo -n "apple"
+
+-command substitution and varible substitution
+----------------------------------------------
+here we store the result of a command which is executed in the variable
+	---example---------
+len=$(echo -n "apple" | wc -c)
+
+wc -c : here -c is for to get no. of character in giver args
+
+==variable substitution
+-----------------------
+$x
+or
+${x}
+
+command substitution
+---------------------
+`any command`
+or
+${any command}
+
+======================================================
+echo "hello" > abc.txt ===>overwrite exiting data in file
+echo "hello" >> abc.txt ==> append the data in file
+========================================================
+
+WRITE A SCRIPT TO CREATE LOG FILE WITH TIMESTAMP:
+---------------------------------------------------
+	---------SCRIPT------------
+timestamp=$(date +%d_%m_%y_%Y_%H_%M_%S)
+echo "this is data to log file" >> ${timestamp).log
+echo "this is extra data to log file" >> $ {timestamp}.log
+date >> ${timestamp}.log
+echo >> ${timestamp}.log
+echo "data written to log file successfully"
+-------------------------------------
+in the above script if we want to create log file for every minuit then
+timestamp=$(date +%d_%m_%y_%h_%m)
+timestamp=$(date +%d_%m_%y_%h)=====>to create log file for hour
+timestamp=$(date +%d_%m_%y)==== for every day
+timestamp=$(date +%m_%y)=== for every month
+timestamp=$(date +%y) ===for year
