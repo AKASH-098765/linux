@@ -1,0 +1,128 @@
+linux by durga sir:
+session 15: 
+date: 8/3/24
+-------------------------
+
+
+how to view contentof the file:
+--------------------------------
+following are some command to view content of file
+
+1 cat
+2 tac
+3 rev
+4 head
+5 tail
+6 more 
+7 less
+
+view content using cat command:(cat word is derived from concatination)
+-------------------------------
+==========usage of cat file============
+1 to create new file with some content:
+------------------------------------------
+	cat > file.txt
+	some required data
+	ctrl+d --> to save and exit
+2 to append some extra data to exiting file:
+--------------------------------------------
+	cat >> file.txt
+	some more data
+	ctrl+d --> to save and exit
+
+3 to view content fo file:
+--------------------------
+
+cat < file.txt
+	here < is optional
+cat file.txt
+
+-if we want line number we have to use -n option
+	cat -n file.txt
+-if we want to ignore the blank line from the file then we use -b and the number is generated for valid data from the file
+	cat -b file.txt
+-to view multiple file content simultanously then
+	cat file1.txt file2.txt file3.txt
+
+4 to copy content of one file to another file:
+-----------------------------------------------
+	cat file1.txt > file2.txt
+	(same the operation as cp file1.txt file2.txt)
+
+5 to append one file content to another file:
+--------------------------------------------
+	cat file1.txt >> file2.txt
+6 to copy content of multiple file into a single file:
+------------------------------------------------------
+	cat a.txt b.txt c.txt > total.txt(to override the data)
+	cat a.txt b.txt c.txt >> total.txt(to append the data)
+
+======================================================================
+
+2 tac command:
+---------------
+- it is reverse of the cat
+-it will display the content of file in reverse order of lines
+-this is vertical reverse
+	----example------
+hello 
+hi 
+whats up 
+bro
+	result
+bro
+whats up
+hi 
+hello
+======================================================================
+3 rev command:
+--------------
+rev means reversal
+each line will be reversed
+it is horizantal reversal
+	-----example-------
+	file.txt
+sunny
+bunny
+chinny
+	------result------
+	rev file.txt
+ynnus
+ynnub
+ynnihc
+====================================================================
+
+cat command can show the all file content. if the file content thousand of line then it is not recommanded to use the cat command insted of cat we are use head, tail, more, less commands
+
+head command:
+------------
+1) to view specified no. of line from top of the file then we use head command.
+	-----example-----
+	head -n 15 file.txt	or	head -15 file.txt
+-this command will give us only first 15 line from the top from file.
+
+2) to show the all line except last line from the file
+	--------example---------
+	head -n -5 file.txt
+-it will show all the line from file except last 5 line
+ 
+3) to display no. of character:
+	------example---------
+	head -c 100 file.txt
+-it will display first 100 characher from the file
+===============================================================
+tail command:
+----------------
+1)to view file content from bottom of the file then use tail command.
+	----------example-------
+	tail -n 5 file.txt	or	tail -5 file.txt	or tail -n -5 file.txt
+- it will display last 5 line
+
+2) to display no. of character last from the file
+	------example--------
+tail -c 3 file.txt
+
+3) if we want set of line from the file then
+	------example------
+	head -7 file.txt | tail -5 
+-here first it will load only first 7 line then it will get only last file line from the result

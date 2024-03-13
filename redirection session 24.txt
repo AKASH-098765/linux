@@ -1,0 +1,100 @@
+session 24 
+date 11/3/24
+--------------------
+Redirection:
+------------
+standerd input, standerd output, standerd error are data stream and can flow from one place to another place. we can redirect these stram
+
+1. redirecting standerd output:
+-------------------------------
+- it is associated with 1
+- bydefault standerd output connected with terminal. but we can redirect this output from terminal to some where else based on our reqirement
+- we can perform output redirection by using > and >> symbol
+
+	------example-----
+-to redirct standerd output of cat command from terminal to output.txt
+	$ cat 1 > output.txt	or	cat > output.txt
+	---some random data----
+	-here the output in not show in terminal. here output show on output.txt and previous data in override
+
+	$ cat 1 >> output.txt	or	cat >>	output.txt
+	---some data to append----
+	-here the data in appended to the output.txt file
+
+2. Redirecting standerd error:
+-------------------------------
+-bydefault standerd error device is connected to terminal . we can redirect error massage from terminal to our requied place.
+- we can implement error redirection by using > and >> symbols
+- standerd error stram is associated with digit 2.
+	------example------
+	$ cal shfhwef 2>> error.txt
+	-this command will generate error and append this error will be saved on error.txt file insted of terminal
+
+3. Redirecting standard input:
+------------------------------
+- bydefault standerd input device in connected with keyboard. but we can redirect form keyboard to somewhere else based on our requirement.
+- standerd input stream associted with  0
+- we can perform input redirction by using < symbol.
+	----example----
+	$ cat 0< a.txt	  or	 cat < a.txt 	or cat a.txt
+	- here cat will take input from a.txt file and not except it from keyboard and display output to the standerd output device which is terminal.
+
+-bydefault < symbol is always associated with 0. hence we can remove
+-if we not using any symbol with cat command, it will bydefault consider < symbol. so we not require to use < symbol also...
+
+-------- read input from a.txt and write that output to result.txt and error into error.txt-------
+$ cat 0< a.txt 1> result.txt 2>> error.txt
+		or
+$ cat a.txt > result.txt 2>> error.txt
+-here
+input redirection from keyboard to a.txt
+output redirection from terminal to result.txt
+error redirection from terminal to error.txt
+
+que. ->how to output and error redirect to result.txt only
+$ cat a.txt > result.txt 2>result.txt
+	or
+$ cat a.txt &> result.txt
+-here if we use 
+> and >> 	either output redirection or error redirection
+&> 	both output and error redirection to a single place
+
+
+- redirecting standerd output of one terminal to another terminal:
+-----------------------------------------------------------------
+
+-in unix every thingis treated as a file even our terminal also
+- we can find terminal related file by using tty command.
+-----------example------------
+terminal one	/dev/pts/0
+terminal two	/dev/pts/1
+
+from first terminal to second terminal:
+----------------------------------------
+$ cal /dev/pts/1
+	here we will get the cal output to the terminal no. two
+
+que. in how many ways a command can get input?
+que. which of the following are data stream?
+standard input
+	output
+	error
+que. bydefault standard input device connected to :  keyboard
+que. standard output: terminal
+que. standerd error: terminal
+
+0--standard input stream
+1--	 output stream
+2--	 error stream
+
+que. how we can redirect standard output of the ls command to a file called output.txt
+	$ls > output.txt
+	$ ls 1> output.txt
+que. how we can redirect the standerd output of the ls command to output.txt but at the same time, redirect standard error to error.txt ?
+	$ ls > output.txt 2> error.txt
+que. what is diff between <,>,>> symbol
+	< for input redirection
+	> for output and error redirection where override will happen
+	>> for output and error redirection where append will happen
+
+

@@ -1,0 +1,23 @@
+session: 21
+date: 10/3/24
+-----------------------------------------------------------------
+-we can use wc command to count number of lines words and character present in the given file.
+
+$wc filename
+	-no. of lines	 no. of words	 no of charcter 	filename
+
+	-----------example--------
+$wc file.txt
+	4 12 23 file.txt
+		-here
+		4 is no. of line in file.txt 
+		12 are no. of words
+		23 are no. of character
+
+wc -l file.txt =====to print only no. of lines
+wc -w ===== no. of words
+wc -c ===== no. of chatacte
+wc -lc ==== no. of lines and charcter
+wc -wc ==== no. of words and charcter
+wc -L ===== no. of char present in longest line in a file
+wc file1.txt file2.txt file3.txt ===== give the details of all files

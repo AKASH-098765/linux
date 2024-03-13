@@ -1,0 +1,94 @@
+piping and importance of tee and xargs
+session: 25
+date 12/3/24
+------------------------------------------
+
+
+we can provide command in two way:
+1 using command line args 
+2 from standerd input
+
+command can provide how many type of output:
+standerd output 
+-standard error
+
+data stream are:
+-standard input
+-standard output
+-standard error
+
+command line args ---> static
+
+
+Piping concept:
+---------------
+-sometime we can use output of one command as input to other command. this is called piping
+- by using piping, multiple commands will work together to fulfill our requirement.
+- we can implement piping by using vertical bar(|)
+	---example--
+$ ls -l /etc
+	it it provide long listing of file and repository
+$ ls -l /etc | wc -l
+	it provide total no. of file present
+	-here output of ls -l /etc will be provided to the input to second command | wc -l
+	-here wc command take standard input
+	- standard output of ls become standerd input of wc command
+
+$ ls -l /etc | wc
+	-here we get total no. of word, line and charcter
+
+
+
+Requirement:
+the output of ls command should be saved to file output.txt an should be provided as input to wc command?
+
+- here we require T pipe to fulfill the requirement
+
+tee command:
+-------------
+in piping if we want to save the output of one command to a file and if we want to pass that output as input to next command simultanously then we should use tee command.
+
+
+$ ls -l | tee output.txt | wc
+	-here tee will first save the result of ls -l to the output.txt and give same output as input to wc command.
+
+	----example-----
+$ ls -l | tee output.txt
+
+-here ls -l save the result to the output.txt 
+- but here we not used any  command after the tee command. to it will show the result of ls -l to the terminal
+
+
+$ ls -l | tee output.txt | wc > wc.txt
+	-here we not get any output on terminal because we now saving the output of wc to the wc.txt
+
+$ ls -l | tee output.txt | wc | tee wc.txt 
+	here we will save the result of ls -l output.txt and the result of wc will display and show to the wc.txt
+
+
+Requirement 2:
+--------------
+assume input.txt contains file name.
+
+input.txt
+--------
+file1.txt
+file2.txt
+file3.txt
+
+- now read the names from the input.txt and remove each file
+
+	---to do so we use xargs command--------
+xargs command:
+-------------
+-here xargs command will take the result from input.txt and this result will converted to the command line args to the rm command
+-xargs convert output stream into command line args
+
+$ cat input.txt | xargs rm
+
+
+	-------example-------
+assume input.txt contain multiple file names. read all these file name from input.txt and display the files content to the terminal.
+
+$ cat input.txt | xargs cat
+
