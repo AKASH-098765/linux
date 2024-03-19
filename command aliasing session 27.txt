@@ -1,0 +1,80 @@
+session 27
+date: 15/3/24
+command aliasing
+-------------------
+
+-Aliasing is means giving a nickname to a perticular person or product for our understanding
+
+-in linux, for the lenthy command we can give alias name for the simplicity.
+
+- when we define alias it is store temparary
+
+-how to create alias name:
+-------------------------
+$ alias nickname='original command'
+
+how to list out all alias name:
+-------------------------------
+we have to use alias command
+$ alias
+
+how to remove alias name:
+-----------------------
+$ unalias command_name;
+
+to remove all alias
+$ unalias -a
+
+how to check the alias name is already use or not:
+--------------------------------------------------
+$ type alias_name
+
+where are the usecase of alias:
+-------------------------------
+1. if leanthy command repetedly required then we can create shortcut alise name and we can use that shortcut every time.
+	-----example--------
+mkdir dir1;touch dir1/file{1..20}.txt		----here we create dir dir1 and in that we create 20 file
+$ alias d20f='mkdir dir1;touch dir1/file{1..20}.txt'
+
+2. to use our home os commands in linux directly
+	---example---
+$ alias cls=clear
+$ alias rename=mv
+
+3. to handle typing mistake
+ sometime we bymistake write wrong command for a perticular. in such case we can use the alias 
+
+$ grep
+$ grpe	--bymistake we type this
+$ alias grpe=grep
+
+4. To handle language barrier:
+some country they use different word compair to our word
+
+in germany date say as datum
+$ alias datum=date
+
+
+-alias are temporary stored in the system
+-but we can store this alias permnantly in the system using .bash or c file
+
+-1st way:
+----------
+.bashrc file inside user home directory and define their alias
+
+	------example-------
+if we want to use alias for clear as cls 
+ -here first we go the user home dir and then open .bashrc file and here we create our own alias
+ - after creating alias we save the file and then we will reopen the terminal or use this command
+$ resource .bashrc
+
+2nd way:
+-----------
+instead of editing .bashrc file we can create our own file to maintain our defined aliases.
+the name of file should be .bash_aliases and should be present user home dir
+
+$ gedit .bash_aliases
+
+	alias mydate=date
+	alias dd=date;date
+	alias cls=clear

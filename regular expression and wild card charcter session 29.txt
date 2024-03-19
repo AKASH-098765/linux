@@ -1,0 +1,104 @@
+session 29
+date: 18/3/24
+regular expression and wild card charcter
+-------------------------
+-by using wild card character we can build regular expression.
+-a wildcard character can be used as a subtitute for required sequence of character in regular expression.
+
+* 	represent zero or more charcter. ie any number of charcter
+? 	represent only one charcter
+[] 	range of charcters
+[abc] 	a or b or c (we have to take only one charcter that can be either a or b or c
+[!abc]	any charcter except a and b and c
+[a-z] 	any lower case alphabet symbol
+[A-Z]	any uppepr case alphabet symbol
+[a-zA-Z]	any alphabet symbol either lower or uppercase
+[a-zA-Z0-9]	any alphanumeric charcter
+[!a-zA-Z0-9]	other than alphanumric
+
+
+
+que1. to list out all files present in current working dir.
+$ ls *
+
+2. to list out all file with some extension
+$ ls *.*
+
+
+3. to list out all .txt files
+$ ls *.txt
+
+3. list our all .java files
+$ ls *.java
+
+4. list out all file start with a
+$ ls a*
+
+5. list out all file start with a and end with t
+$ ls a*t
+
+6. list out all file where filename contain only 2 charcter and first charcter should be a
+$ ls a?
+
+7. list out all file where file name contain only 3 charcter
+$ ls ???
+
+8. list out all files where file name contains atleast 3 charcter
+$ ls ???*
+
+9. list out all file where file name start with a or b or c
+$ ls [abc]*
+
+10. list out all file where file name should not start with a or b or c
+$ ls [!abc]*
+
+11. list out all file where file name start with lower case alphabet symbol
+$ ls [a-z]*	or	$ ls [[:lower:]]*
+
+12. list out all file where file name start with upper case alphabet symbol
+$ ls [A-Z]*	or	$ ls [[:upper:]]*
+
+13. list out all file start with digit
+$ ls [0-9]*	or	$ ls [[:digit:]]*
+
+14. list out all file where first letter should be upper case alphabet symbole, second should be digit and third letter should be lower case alphabet symbol
+$ ls [A-Z][0-9][a-z]*	or	$ ls [[:upper:]][[:digit:]][[:lower:]]
+
+15. to list out all file start with special symbol2
+$ ls [![:alnum:]]*
+
+16. to list out all file start with .java or .py extesion
+$ ls {*.java,*.py}
+
+
+note: we can use regular expression and wild card charcter with other command also like rm, cp, mv etc.
+
+18. to copy all file start with digt to the dir1 directory
+$ cp [0-9]* dir1	or	$ cp [[:digit:]]* dir1
+
+19. to move all file start with alphabet symbol and with .txt extension or dir2?
+$ mv [[:alpha:]]*.txt dir2
+
+20. remove all file start with a ro b or c and end with et
+$ rm [abc]*[et]
+
+21. which command will list all file that has exactly 3 charcter persent in cwd
+$ ls ???
+
+22. which command will copy all files that ends with .pdf to dir1?
+$ cp *.pdf dir1
+
+23. which command will move all files that begin with letter a and end with letter n to dir1?
+$ mv a*n dir1
+24. which command will display content of all file that begin with digit and end with a or e or i or o or u ?
+$ cat [0-9]*[aeiou]	or	$ cat [[:digit:]]*[aeiou]
+
+25. which command will list all file that begin with a lower case alphabet symbol and has a letter d in the third char position, and ends with an upper case letter?
+$ ls [[:lower:]]?d[[:upper:]]
+
+26. which command will list all .jpg files present in picture directory?
+$ ls /home/akash/Pictures/*.jpg		or	$ ls ~ /Pictures/*.jpg
+
+27. which of the following regular expression will match file named with demoA.txt>
+
+$ demoA.txt
