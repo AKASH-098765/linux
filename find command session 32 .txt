@@ -1,0 +1,58 @@
+session 32:
+date: 20/3/24
+-----------------
+
+jackpot assignment:
+---------------------
+que. we have a 100 of dir and each dir contain 100 of files. now we want to create a file and want to save this file in one of this dir.
+after that we want to find the created file path. then we want to move this file to the desktop
+
+$ mkdir jackpot
+$ mkdir jackpot/dir{1..100}			created 100 of directory
+$ touch jackpot/dir{1..100}/file{1..100}.txt	created 100 of files in each dir
+
+$ touch jackpot/dir$(shuf -i 1-100 -n 1)/sunny.txt
+	here
+	-shuf -i 1-100 -n 1 	this command will  create the random number between 1 to 100 and -n 1 define it will create only one random number
+	-dir$(shuf -i 1-100 -n 1)/sunny.txt	this will create sunny.txt in any of 1 to 100 no. dir
+
+$ find jackpot -type f -name 'sunny.txt' -exec mv{} ~/Desktop \;
+	here
+	find jackpot -type f -name 'sunny.txt		this will find the sunny.txt file in all the dir availble in jackpot dir
+	exec mv{} ~/Desktop /;
+		here exec command will get the result of find jackpot -type f -name 'sunny.txt' command and put it in {} 
+		after that mv command will move the file from any of dir to desktop
+
+$ find jackpot -type f -name '*.txt' -exec rm {} \;
+	this will remove all file present in jackpot dir
+
+$ find jackpot -type d -exec rm -r {} \;
+	this will remove all dir from jackpot including jackpot dir
+
+
+que. to find only dir inside /dev folder and limit its search to only 2 level of depth?
+$ find /dev -maxdepth 2 -type d
+
+que. find only files start from root dir (/) where file name ends with .txt?
+$ find / -type f -name '*.txt'	or	
+$ find / -type f -iname '*.txt'
+
+que. to find all files and dir inside /dev dir upto max.3 level of deep and size is greater than 200kb?
+$ find /dev -maxdepth 3 -size +200k
+
+que. which command will find all files below our home dir where file size is grether than 3 mb and remove all those files?
+$ find ~ -type f -size +3m -exec rm{} \;
+
+
+que. diff between find and locate command
+	find				locate
+1 search in file system		in database
+2 more accurate result		may not accurate
+3 slowly operation		faster operation
+4 more option available		less no. of option
+5 way to use search result	no direct way 
+directly for some other 
+using -exec			
+6 can reduce search depth	no such option
+
+
