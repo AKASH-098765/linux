@@ -1,0 +1,17 @@
+session 40
+date: 29/3/24
+paste command
+-----------------------------------------------
+
+que. we have 2 file. now we want to join this two file horizantaly.
+-here we join two file horizantaly by using some delimiter. default delimiter is tab.
+$ paste file1.txt file2.txt
+	-here we will get the data like first line of file1 then   first line of file2. same thing will be going to happen for whole the file
+
+-delimiter should be only one charter
+-here the default delimiter is tab. 
+-if we want another delimiter then we will use -d option
+
+$ paste -d '|' file1.txt file2.txt
+
+

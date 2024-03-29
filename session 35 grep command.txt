@@ -1,0 +1,52 @@
+session 35
+date: 25/3/24
+
+grep command and various option:
+----------------------------------
+
+search multiple content in file:
+-------------------------------
+$ grep -e 'java' -e 'linux' demo.txt	or	$ egrep '(java|linux)' demo.txt
+	here we search for java and linux word  in demo.txt and give the whole line
+
+egrep command can understand patterns
+$ egrep '^linux' demo.txt
+$ egrep '(java|linux)' demo.txt
+
+que. we want the line which is start with 'java' 
+$ grep -i '^java' demo.txt
+
+grep with -F option:
+-----------------
+-it means fixed strings
+-if we want to search for a group of fixed string then we should go for -F option
+
+	-example-
+$ grep -F "java
+>python
+>linux" demo.txt
+
+
+here we can use fgrep insted of grep
+fgrep means  --> Fixed String Globle Regular Expression Print
+
+-fgrep command not understand pattern, it only understand string
+-we have to provide only fixed string
+
+	-------example------
+we have some word in keyword.txt file and we want to search the word in another file of demo.txt
+$ fgrep -f keyword.txt demo.txt
+	here we will the the result of the word from keyword.txt into the demo.txt file
+
+
+
+-performancewise fgrep is to good
+-but egrep is too powerfull
+-highly recommanded to use grep -f and grep -e
+  			   -------	------
+
+
+
+
+
+

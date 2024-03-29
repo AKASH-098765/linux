@@ -1,0 +1,60 @@
+session 39
+date: 26/3/24
+cut command
+------------------------
+-cut command is used to extract data from the file.
+-file can be either normal file or tabular file.
+
+normal file:
+-----------
+first line
+second line
+third line
+
+tabular file: emp.dat
+-------------
+eno|ename|esal
+100|sunny|1000
+200|bunny|2000
+
+que. display char on the specific position in every record
+$ cut -c 9 emp.dat
+	-here -c meant for specific char at position 9 from emp.dat file
+
+que.display range of char in every record:
+$ cut -c 5-9 emp.dat
+	- here it will display 5th to 9th char in every record.
+
+$ cut -c 5-  emp.dat
+	-it will display 5th to last char from every record
+$ cut -c -3 emp.dat
+	-it will display 1th to 3rd char from every record
+$ cut -c 3-5,7-10 emp.dat
+	-it will display 3rd to 5th char and 7th to 10th char in every line
+
+que. display specific column data
+----------------------------------
+$ cat -d "|" -f 3 emp.dat
+	here in -f 3 emp.dat we will get the third colum from the emp.dat file
+	-d means delimiter (sepertor) between record
+	-f means field
+
+
+que. display range of colum
+---------------------------
+$ cut -d "|" -f 2-4 emp.dat
+	here we will get the colum 2,3,4 from emp.dat
+$ cut -d "|" -f 2- emp.dat
+	here we get data from 2 to last colum
+from emp.dat
+$ cut -d "|" -f -4 emp.dat
+	it will give 1st to 4th column
+$ cut -d "|" -f 1,3,5 emp.dat
+	here we will get 1st 3rd and 5th column from emp.dat
+$ cut -d "|" --complement -f 3,5 emp.dat
+	it will display all column except 3rd and 5th column
+	here --complement command is used to get column expect 3 and 5 column
+$ cut -d "|" --complement -f 3-5 emp.dat
+	it will display all column except 3rd to 5th column
+$ cut -d "|" --complement -f -4 emp.dat
+	it will give all except 1st to 4th column
